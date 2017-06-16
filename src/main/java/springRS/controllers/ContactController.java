@@ -4,9 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import springRS.domain.Contact;
-import springRS.exceptions.BadRequestException;
-import springRS.exceptions.ContactNotFoundException;
-import springRS.exceptions.UnknownResourceException;
 import springRS.services.ContactService;
 import springRS.util.Util;
 
@@ -22,7 +19,6 @@ public class ContactController {
     private Util util = new Util();
 
     @RequestMapping(path = "/create", method = RequestMethod.POST)
-    //@ExceptionHandler(BadRequestException.class)
     public Contact create(@RequestBody Contact contact) {
         util.validateContact(contact);
 
@@ -36,7 +32,6 @@ public class ContactController {
     }
 
     @RequestMapping(path = "/update", method = RequestMethod.PUT)
-    //@ExceptionHandler({ContactNotFoundException.class, BadRequestException.class})
     public Contact update(@Param("id")String id, @RequestBody Contact contact) {
         util.validateContact(contact);
 

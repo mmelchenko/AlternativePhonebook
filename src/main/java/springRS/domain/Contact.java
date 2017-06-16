@@ -9,7 +9,6 @@ public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@SequenceGenerator(name="contact_id_seq", sequenceName="contact_id_seq", allocationSize=1)
     private Long id;
 
     private String name;
@@ -67,7 +66,6 @@ public class Contact {
 
         Contact contact = (Contact) o;
 
-        //if (id != contact.id) return false;
         if (name != null ? !name.equals(contact.name) : contact.name != null) return false;
         if (surname != null ? !surname.equals(contact.surname) : contact.surname != null) return false;
         return !(phone != null ? !phone.equals(contact.phone) : contact.phone != null);
